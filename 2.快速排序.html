@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>快速排序</title>
+</head>
+<body>
+<script>
+    var ary = [2,5,9,4,6,1,10,18,3];
+    console.log(ary);
+    function quickSort(ary1){
+        if(ary1.length<=1){
+            return ary1;
+        }
+        var middleIndex = ary1.splice([Math.floor(ary1.length/2)],1)[0];
+        var left =[],right =[];
+        for(var i=0;i<ary1.length;i++){
+            var cur = ary1[i];
+            if(cur < middleIndex){
+                left.push(cur);
+            }else{
+                right.push(cur);
+            }
+        }
+        return quickSort(left).concat([middleIndex],quickSort(right));
+    }
+    console.log(quickSort(ary));
+</script>
+</body>
+</html>

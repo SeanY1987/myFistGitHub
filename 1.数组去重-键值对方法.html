@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数组去重-键值对方法</title>
+</head>
+<body>
+<script>
+    var a = [1,2,3,2,4,5,2,1,6];
+    console.log(a);
+    var obj = {};
+    for(var i=0;i< a.length;i++){
+        var cur = a[i];
+        if(obj[cur] == cur){
+            a[i] = a[a.length-1];
+//            a.length--;
+            a.pop();
+            i--;
+        }else{
+            obj[cur] = cur;
+        }
+    }
+    console.log(a);
+    console.log(obj);
+</script>
+</body>
+</html>
